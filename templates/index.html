@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Recommender System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Music<span>Recommender</span></h1>
+        </header>
+        
+        <main>
+            <div class="controls-panel">
+                <div class="search-section">
+                    <input type="text" id="search-input" placeholder="Search for a song...">
+                </div>
+
+                <div class="mood-selector">
+                    <h3>Set Your Mood (Genre Weights)</h3>
+                    <div class="sliders-grid">
+                        <div class="slider-item">
+                            <label>Pop</label>
+                            <input type="range" id="mood-pop" min="0" max="5" value="0">
+                        </div>
+                        <div class="slider-item">
+                            <label>Rap</label>
+                            <input type="range" id="mood-rap" min="0" max="5" value="0">
+                        </div>
+                        <div class="slider-item">
+                            <label>Rock</label>
+                            <input type="range" id="mood-rock" min="0" max="5" value="0">
+                        </div>
+                        <div class="slider-item">
+                            <label>R&B</label>
+                            <input type="range" id="mood-r&b" min="0" max="5" value="0">
+                        </div>
+                        <div class="slider-item">
+                            <label>Latin</label>
+                            <input type="range" id="mood-latin" min="0" max="5" value="0">
+                        </div>
+                        <div class="slider-item">
+                            <label>EDM</label>
+                            <input type="range" id="mood-edm" min="0" max="5" value="0">
+                        </div>
+                    </div>
+                    <button id="mood-btn" class="mood-btn" onclick="getMoodRecommendations()">Get Mood Recommendations</button>
+                    <p class="mood-help">Songs that match your chosen mood will appear at the top.</p>
+                </div>
+            </div>
+
+            <!-- Context message from backend -->
+            <div id="explanation-box" class="explanation hidden"></div>
+            
+            <div class="results-container" id="results-container">
+                <!-- Song cards get injected here -->
+                <div class="empty-state">Search or use the sliders to find music.</div>
+            </div>
+        </main>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
