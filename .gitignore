@@ -149,6 +149,4 @@ cython_debug/
 .vscode/
 
 # Project-specific data files (optional to ignore)
-data.json
-spotify.csv
 test_output.txt
